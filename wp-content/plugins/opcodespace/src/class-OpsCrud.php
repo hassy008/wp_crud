@@ -5,9 +5,10 @@
  */
 class OpsCrud extends AbstractModule
 {
-	
-	function __construct(argument)
+	protected $table;
+	function __construct()
 	{
-		# code...
+        parent::__construct();
+        $this->table  = $this->db->prefix . 'crud_user_action';
 	}
 }

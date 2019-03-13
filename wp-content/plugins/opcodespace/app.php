@@ -54,6 +54,7 @@ add_action('plugins_loaded', array('OpsFilter', 'init'));
 # Install table
 //register_activation_hook(__FILE__, array('OpsInstallTable', 'token'));
 register_activation_hook(__FILE__, array('OpsInstallTable', 'crud_user'));
+register_activation_hook(__FILE__, array('OpsInstallTable', 'crud_user_action'));
 
 function register_session_customization() {
     if (!session_id())

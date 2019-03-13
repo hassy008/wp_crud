@@ -28,7 +28,8 @@ $allUser 	 = $OpsCrudUser->getAll('id');
 	<td>
 		<a href="<?php echo home_url('update-crud');?>?editID=<?php echo ($user->id); ?>">
  	 Edit</a>
- 	  ||<a href="<?php echo home_url('delete-crud');?>?delete=<?php echo ($user->id); ?>"> Delete</a>
+ 	  ||<a href="</?delete=<?php echo ($user->id); ?>"> Delete</a>
+ 	 <!--  <a href="<?php echo home_url('delete-crud');?>?delete=<?php echo ($user->id); ?>"> Delete</a> -->
  	</td>
 </tr>
 <?php } ?>
