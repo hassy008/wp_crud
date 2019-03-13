@@ -5,7 +5,7 @@ echo "<pre>";
 print_r($getData);
 echo "</pre>";
 ?>
-<form class="" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST">
+<form class="" action="<?php echo esc_url(admin_url('admin-post.php')); ?>?editID=<?php echo $getData->id; ?>" method="POST">
     <input type="hidden" name="action" value="crud_user_edit_link">
     <?php wp_nonce_field('userEdit-nonce', 'userEdit'); ?>
 
@@ -14,7 +14,7 @@ echo "</pre>";
             <td>First Name</td>
             <td>
                 <input type="text" name="first_name" value="<?php echo $getData->first_name; ?>" />
-                <input class="form-control" type="text" name="data[<?php echo $getData->id; ?>][id]" value="<?php echo $getData->id; ?>">
+                <input class="form-control" type="hidden" name="id" value="<?php echo $getData->id; ?>">
             </td>
         </tr>
         <tr>

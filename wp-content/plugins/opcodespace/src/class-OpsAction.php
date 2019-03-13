@@ -56,29 +56,21 @@ class OpsAction
         if (!isset($_POST['userEdit']) || !wp_verify_nonce($_POST['userEdit'], 'userEdit-nonce')) {
             die("You are not allowed to submit data.");
         }
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>'; //die;
-                
-        foreach ($_POST['data'] as $result) {
-            $data['first_name'] = $result['first_name'];
-            $data['last_name']  = $result['last_name'];
-            $data['address']    = $result['address'];
-            $data['email'] 			= $result['email'];
-            $data['phone'] 			= $result['phone'];
-            $data['id']   			= $result['id'];
+        else {
+            $data = array(
+                        'first_name' => $_POST['first_name'],
+                        'last_name'  => $_POST['last_name'],
+                        'address'    => $_POST['address'],
+                        'email'      => $_POST['email'],
+                        'phone'      => $_POST['phone']
+                    );
 
             $OpsCrud = new OpsCrud();
             $OpsCrud->update($data, ['id' => $_POST['id']]);
-            echo '<pre>';
-            print_r($_POST);
-            echo '</pre>';
-            //die;
-                
-                    //	$this->State->update($data);
-            // wp_redirect($_POST['_wp_http_referer']);
-            // exit();
-       // }
-        }
+            //echo "<pre>"; print_r($data); echo "</pre>"; die();
+                    
+            wp_redirect($_POST['_wp_http_referer']);
+            exit();
+        }        
     }
 }	
